@@ -33,10 +33,14 @@ tryInitSupabase();
 
 // ===========================
 // ===========================
-// COMPLETE VIDEO CATALOG (40+ Projects)
+// COMPLETE VIDEO CATALOG (44+ Projects)
 // ===========================
 const data = [
   // TOP FEATURED PROJECTS (Displayed First at Top)
+  { id: 'burger_ad', title: 'Gourmet Burger Commercial', cat: 'product', tag: 'Product Film', role: 'Commercial Food Direction', tools: 'Flame-grilled texture, macro sauce FX', desc: 'Tactile food commercial — flame-grilled texture & macro sauce detail', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784888307/burger_ads_miya36.mp4', featured: true },
+  { id: 'fashion_reel', title: 'Luxe Fashion Commercial', cat: 'commercial', tag: 'AI Commercial', role: 'Fashion Film Direction', tools: 'Dynamic studio lighting, fabric movement', desc: 'High-contrast fashion film — dynamic lighting & fabric movement', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784887768/full_fasion_ijd2so.mp4', featured: true },
+  { id: 'shoe_product', title: 'Apex Sneaker Reveal', cat: 'cgi', tag: 'CGI & 3D', role: '3D Footwear Spec Film', tools: 'Sole geometry, material shader', desc: '3D footwear spec film — sole grip geometry & material shaders', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784888111/shoe_product_ktxomt.mp4', featured: true },
+  { id: 'fiverr_gig', title: 'Creative Motion Showcase', cat: 'commercial', tag: 'AI Commercial', role: 'Visual Direction Reel', tools: 'Kinetic typography, motion design compilation', desc: 'Fast-paced motion design compilation & brand visual direction', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784531942/fiverr_gig_3_vrc6wj.mp4', featured: true },
   { id: 'autom', title: 'AUTOM Automotive CGI', cat: 'cgi', tag: 'CGI & 3D', role: 'Automotive CGI', tools: 'Full vehicle reveal, dynamic lighting', desc: 'Automotive CGI — Full vehicle reveal with dynamic lighting', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784881545/AUTOM_ym8ltz.mp4', featured: true },
   { id: 'perfume', title: 'Oura Fragrance Commercial', cat: 'commercial', tag: 'AI Commercial', role: 'AI Commercial', tools: 'Macro detail, cinematic grade', desc: 'Luxury fragrance film — Macro detail + cinematic grade', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784532508/perfume_ad_d5urml.mp4', featured: true },
   { id: 'sonix', title: 'Sonix Smartwatch Reveal', cat: 'ugc', tag: 'UGC / Social', role: 'UGC / Social', tools: 'Hook-first 9:16 format, paid social', desc: 'UGC social ad — Hook-first 9:16 format for paid social', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784531745/SONIX_vwu5qm.mp4', featured: true },

@@ -2,6 +2,10 @@
 // PORTFOLIO VIDEOS DATA (40 items)
 // ===========================
 const videos = [
+  { id: 'burger_ad', title: 'Gourmet Burger Commercial', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784888307/burger_ads_miya36.mp4', cat: 'commercial', desc: 'Tactile food commercial — flame-grilled texture & macro sauce detail.' },
+  { id: 'fashion_reel', title: 'Luxe Fashion Commercial', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784887768/full_fasion_ijd2so.mp4', cat: 'commercial', desc: 'High-contrast fashion film — dynamic lighting & fabric movement.' },
+  { id: 'shoe_product', title: 'Apex Sneaker Reveal', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784888111/shoe_product_ktxomt.mp4', cat: 'motion', desc: '3D footwear spec film — sole grip geometry & material shaders.' },
+  { id: 'fiverr_gig', title: 'Creative Motion Showcase', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784531942/fiverr_gig_3_vrc6wj.mp4', cat: 'commercial', desc: 'Fast-paced motion design compilation & brand visual direction.' },
   { id: '1', title: 'Automotive Spec Film', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784532520/car_seat_ad_crqofg.mp4', cat: 'motion', desc: 'A cinematic automotive concept built around dark moody lighting, precision metallic curves, and reflections.' },
   { id: '2', title: 'Sonix Smartwatch Reveal', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784531745/SONIX_vwu5qm.mp4', cat: 'motion', desc: 'Futuristic product reveal highlighting high-end engineering detail, matte titanium surfaces, and UI screens.' },
   { id: '3', title: 'Raw Visual Concept', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784531684/raw1111_snia7k.mp4', cat: 'motion', desc: 'Abstract visual experiment studying light refraction through textured glass and metallic meshes.' },
