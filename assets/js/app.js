@@ -88,19 +88,18 @@ const data = [
 // RENDER PORTFOLIO GRID
 // ===========================
 const projectsEl = document.getElementById('projects');
-let isExpanded = false;
-
 function renderGallery(filter = 'all') {
   if (!projectsEl) return;
   projectsEl.innerHTML = '';
 
-  data.forEach((p, idx) => {
+  data.forEach(p => {
     const isFeatured = !!p.featured;
-    const isVisible = filter === 'all' ? (isExpanded || isFeatured) : (p.cat === filter);
+    const isVisible = filter === 'all' ? isFeatured : (p.cat === filter);
+
+    if (!isVisible) return;
 
     const card = document.createElement('div');
-    card.className = `card reveal ${!isVisible ? 'hidden-card' : ''}`;
-    card.style.display = isVisible ? 'flex' : 'none';
+    card.className = 'card reveal';
     card.dataset.category = p.cat;
     card.tabIndex = 0;
     card.setAttribute('data-cursor', '');
@@ -150,24 +149,12 @@ if (projectsEl) {
   renderGallery();
 }
 
-// Toggle All 40+ Projects Button Handler
-const toggleBtn = document.getElementById('toggleAllProjects');
-if (toggleBtn) {
-  toggleBtn.onclick = () => {
-    isExpanded = !isExpanded;
-    toggleBtn.textContent = isExpanded ? 'Show Featured 6 ↑' : 'Show All 40+ Projects ↓';
-    const activeFilter = document.querySelector('.filter.active')?.dataset.filter || 'all';
-    renderGallery(activeFilter);
-  };
-}
-
 // Filter Tabs Handler
 document.querySelectorAll('.filter').forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
     btn.classList.add('active');
     const f = btn.dataset.filter;
-    if (f !== 'all') isExpanded = true;
     renderGallery(f);
   };
 });
