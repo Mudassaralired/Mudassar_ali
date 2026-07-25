@@ -226,7 +226,10 @@ let searchQuery = '';
 
 function getFilteredList() {
   return videos.filter(v => {
-    const matchFilter = activeGridFilter === 'all' || v.cat === activeGridFilter;
+    const matchFilter = activeGridFilter === 'all' || 
+      v.cat === activeGridFilter ||
+      (activeGridFilter === 'motion' && (v.cat === 'motion' || v.cat === 'cgi')) ||
+      (activeGridFilter === 'commercial' && (v.cat === 'commercial' || v.cat === 'product'));
     const matchSearch = !searchQuery || 
       v.title.toLowerCase().includes(searchQuery) || 
       v.desc.toLowerCase().includes(searchQuery);

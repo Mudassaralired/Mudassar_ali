@@ -99,7 +99,7 @@ function renderGallery(filter = 'all') {
     if (!isVisible) return;
 
     const card = document.createElement('div');
-    card.className = 'card reveal';
+    card.className = 'card in';
     card.dataset.category = p.cat;
     card.tabIndex = 0;
     card.setAttribute('data-cursor', '');
