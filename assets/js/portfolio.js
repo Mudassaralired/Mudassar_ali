@@ -2,6 +2,18 @@
 // PORTFOLIO VIDEOS DATA (40 items)
 // ===========================
 const videos = [
+  { id: 'in_jewelry', title: 'Oura Fine Jewelry Spec', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337211/inshallah_gigu_vgpnp3.mp4', cat: 'motion', desc: 'Luxury jewelry CGI — gemstone reflections & liquid gold physics.' },
+  { id: 'in_earrings', title: 'Luxe Earrings Showcase', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337203/in_earrings_rov1qv.mp4', cat: 'commercial', desc: 'High-contrast jewelry spec film — diamond brilliance & macro detail.' },
+  { id: 'in_pilgrim', title: 'Pilgrim Skincare Commercial', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337178/pilgiram_dpppdx.mp4', cat: 'commercial', desc: 'Clean skincare commercial — organic serum flow & glowing skin tone.' },
+  { id: 'in_cleanser', title: 'Hydrating Cleanser Ad', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337171/in_claiser_g4abty.mp4', cat: 'commercial', desc: 'Tactile skincare ad — water splash FX & micro-foam texture detail.' },
+  { id: 'in_atarajada', title: 'Atarajada Perfume Ad', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337161/in_atarajada_itz4n0.mp4', cat: 'commercial', desc: 'Atmospheric fragrance film — moody shadows & golden glass reflections.' },
+  { id: 'in_fanta', title: 'Fanta Soda Refresh CGI', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337149/fanta_can99_yamwth.mp4', cat: 'commercial', desc: 'Tactile beverage spec film — icy condensation & high-speed splash FX.' },
+  { id: 'in_tajmahal', title: 'Taj Mahal Arch Viz CGI', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337134/inshallah_tajmahal_cfqqta.mp4', cat: 'motion', desc: 'Architectural CGI showcase — marble reflections & sunrise lighting.' },
+  { id: 'in_1stcut', title: 'Cinematic First Cut', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337152/in_1st_cut_rmcjkd.mp4', cat: 'commercial', desc: 'Dynamic motion reel — fast-cut transitions & premium color grade.' },
+  { id: 'in_stb', title: 'Stb Creative Promo', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337132/inshallah_stb_a70g2w.mp4', cat: 'commercial', desc: 'Cinematic brand commercial — dramatic lighting & bold camera flow.' },
+  { id: 'in_797', title: '797 Tech Visualizer', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337112/in_797_t1jvku.mp4', cat: 'motion', desc: 'Futuristic 3D tech reveal — metallic geometry & glowing neon accents.' },
+  { id: 'in_cheeta', title: 'Cheetah Motion Study', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337105/in_cheeta_vrnvqf.mp4', cat: 'motion', desc: 'High-speed CGI motion study — dynamic fur simulation & action pacing.' },
+  { id: 'in_reel78', title: 'Social Hook Performance Reel', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1786337102/in_reel_7..8_ydoy1l.mp4', cat: 'ugc', desc: 'High-converting social ad compilation — hook-first pacing & captions.' },
   { id: 'burger_ad', title: 'Gourmet Burger Commercial', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784888307/burger_ads_miya36.mp4', cat: 'commercial', desc: 'Tactile food commercial — flame-grilled texture & macro sauce detail.' },
   { id: 'fashion_reel', title: 'Luxe Fashion Commercial', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784887768/full_fasion_ijd2so.mp4', cat: 'commercial', desc: 'High-contrast fashion film — dynamic lighting & fabric movement.' },
   { id: 'shoe_product', title: 'Apex Sneaker Reveal', url: 'https://res.cloudinary.com/dbjvyvjs6/video/upload/v1784888111/shoe_product_ktxomt.mp4', cat: 'motion', desc: '3D footwear spec film — sole grip geometry & material shaders.' },
