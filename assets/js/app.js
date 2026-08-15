@@ -222,141 +222,27 @@ navlinksEl.querySelectorAll('a').forEach(a => a.onclick = () => {
 });
 
 // ===========================
-// EMAIL MODAL
+// WHATSAPP BRIEF GENERATOR
 // ===========================
-const emailOverlay = document.getElementById('emailModalOverlay');
+function handleWhatsAppBrief(e) {
+  if (e) e.preventDefault();
+  const pkg = document.getElementById('wa-package')?.value || '';
+  const brand = document.getElementById('wa-brand')?.value || '';
+  const name = document.getElementById('wa-name')?.value || '';
+  const timeline = document.getElementById('wa-timeline')?.value || '';
+  const goal = document.getElementById('wa-goal')?.value || '';
 
-function openEmailModal() {
-  emailOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('mf-name').focus();
+  let message = `Hi Mudassar,\n\nI want to discuss a video project for my brand.\n\n`;
+  if (name) message += `*Name:* ${name}\n`;
+  if (brand) message += `*Brand/Product:* ${brand}\n`;
+  if (pkg) message += `*Selected Package:* ${pkg}\n`;
+  if (timeline) message += `*Target Timeline:* ${timeline}\n`;
+  if (goal) message += `*Project Goal:* ${goal}\n`;
+
+  const waUrl = `https://wa.me/923481321775?text=${encodeURIComponent(message)}`;
+  window.open(waUrl, '_blank', 'noopener');
 }
-function closeEmailModal() {
-  emailOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('openEmailModal').addEventListener('click', openEmailModal);
-const openBtn2 = document.getElementById('openEmailModal2');
-if (openBtn2) openBtn2.addEventListener('click', openEmailModal);
-document.getElementById('emailModalClose').addEventListener('click', closeEmailModal);
-document.getElementById('emailModalClose2').addEventListener('click', closeEmailModal);
-emailOverlay.addEventListener('click', e => { if(e.target === emailOverlay) closeEmailModal(); });
-document.addEventListener('keydown', e => { if(e.key==='Escape' && emailOverlay.classList.contains('open')) closeEmailModal(); });
-
-// Modal form submission
-document.getElementById('modalForm').onsubmit = async (e) => {
-  e.preventDefault();
-  const f = new FormData(e.target);
-  await handleFormSubmit(f, 'modalFormStatus', 'modalSubmitBtn');
-};
-
-// ===========================
-// CONTACT FORM SUBMISSION
-// ===========================
-document.getElementById('contactForm').onsubmit = async (e) => {
-  e.preventDefault();
-  const f = new FormData(e.target);
-  await handleFormSubmit(f, 'formStatus', 'submitBtn');
-};
-
-async function handleFormSubmit(formData, statusId, btnId) {
-  const statusEl = document.getElementById(statusId);
-  const submitEl = document.getElementById(btnId);
-
-  // --- Collect values ---
-  const name     = (formData.get('name')     || '').trim();
-  const brand    = (formData.get('brand')    || formData.get('company') || '').trim();
-  const email    = (formData.get('email')    || '').trim();
-  const service  = (formData.get('service')  || '').trim();
-  const budget   = (formData.get('budget')   || '').trim();
-  const timeline = (formData.get('timeline') || '').trim();
-  const brief    = (formData.get('brief')    || '').trim();
-
-  // --- Client-side Validation ---
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!name) {
-    statusEl.textContent = '⚠ Please enter your name.';
-    statusEl.style.color = 'var(--accent)';
-    return;
-  }
-  if (!email || !emailRegex.test(email)) {
-    statusEl.textContent = '⚠ Please enter a valid email address.';
-    statusEl.style.color = 'var(--accent)';
-    return;
-  }
-  if (!brief) {
-    statusEl.textContent = '⚠ Please write a short project brief.';
-    statusEl.style.color = 'var(--accent)';
-    return;
-  }
-
-  // --- UI: loading state ---
-  statusEl.textContent = '⏳ Saving your brief…';
-  statusEl.style.color = 'var(--soft)';
-  if (submitEl) { submitEl.disabled = true; submitEl.style.opacity = '.6'; }
-
-  let dbSaved = false;
-
-  // --- Supabase save (with retry once) ---
-  const tryInsert = async () => {
-    if (!supabaseClient) return false;
-    try {
-      const { error } = await supabaseClient
-        .from('contact_messages')
-        .insert([{ name, brand, email, service, budget, timeline, brief, created_at: new Date().toISOString() }]);
-      if (error) { console.warn('Supabase error:', error.message); return false; }
-      return true;
-    } catch (err) {
-      console.warn('Supabase exception:', err);
-      return false;
-    }
-  };
-
-  dbSaved = await tryInsert();
-  // Retry once if Supabase client was still loading
-  if (!dbSaved && !supabaseClient) {
-    await new Promise(r => setTimeout(r, 800));
-    tryInitSupabase();
-    await new Promise(r => setTimeout(r, 600));
-    dbSaved = await tryInsert();
-  }
-
-  // --- Build pre-filled mailto ---
-  const timelineLabels = {
-    immediate:'Immediate (< 2 weeks)',
-    one_month:'Within 1 month',
-    one_two_months:'1–2 months',
-    flexible:'Flexible'
-  };
-  const timelineText = timelineLabels[timeline] || timeline;
-
-  const subject = encodeURIComponent(`Project inquiry from ${brand || name}`);
-  const body = encodeURIComponent(
-    `Hello Mudassar,\n\nProject brief from ${name}:\n\n` +
-    `— Name: ${name}\n` +
-    `— Company: ${brand || 'N/A'}\n` +
-    `— Email: ${email}\n` +
-    `— Service: ${service || 'N/A'}\n` +
-    `— Budget: ${budget || 'N/A'}\n` +
-    `— Timeline: ${timelineText || 'N/A'}\n\n` +
-    `Project Brief:\n${brief}\n\n` +
-    `Regards,\n${name}`
-  );
-
-  // --- Final UI feedback + open email ---
-  setTimeout(() => {
-    if (submitEl) { submitEl.disabled = false; submitEl.style.opacity = '1'; }
-    if (dbSaved) {
-      statusEl.textContent = '✓ Brief saved to database! Opening your email app…';
-      statusEl.style.color = 'var(--ok)';
-    } else {
-      statusEl.textContent = '✓ Opening your email app with your brief…';
-      statusEl.style.color = 'var(--soft)';
-    }
-    window.location.href = `mailto:banmance5@gmail.com?subject=${subject}&body=${body}`;
-  }, 900);
-}
+window.handleWhatsAppBrief = handleWhatsAppBrief;
 
 // ===========================
 // SMOOTH CURSOR

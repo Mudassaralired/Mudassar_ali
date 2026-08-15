@@ -1006,7 +1006,147 @@ section {
   margin-top: 1px;
 }
 
-/* ===== CONTACT ===== */
+/* ===== PRICING & RETAINER PACKAGES ===== */
+.pricing {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-2);
+  border-top: 1px solid var(--line);
+  padding: 120px 0;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+  align-items: stretch;
+}
+.pricing-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  backdrop-filter: blur(14px);
+  transition: transform 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
+}
+.pricing-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 110, 64, 0.35);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+}
+.pricing-card.featured {
+  background: linear-gradient(180deg, rgba(255, 110, 64, 0.07) 0%, rgba(255, 255, 255, 0.025) 100%);
+  border-color: rgba(255, 110, 64, 0.45);
+  box-shadow: 0 16px 40px rgba(255, 110, 64, 0.15);
+}
+.pricing-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 5px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(255, 110, 64, 0.4);
+}
+.pricing-card h3 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--paper);
+}
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 18px 0 10px;
+}
+.price-amount {
+  font-family: "Syne", sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--paper);
+  line-height: 1;
+}
+.price-sub {
+  color: var(--soft);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.price-desc {
+  color: var(--soft);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  min-height: 44px;
+}
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  flex-grow: 1;
+}
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: #ddd;
+  line-height: 1.45;
+}
+.pricing-features li svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.pricing-cta {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+}
+.pricing-cta.primary {
+  background: var(--accent);
+  color: var(--ink);
+}
+.pricing-cta.primary:hover {
+  background: var(--accent-deep);
+  color: var(--paper);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 110, 64, 0.3);
+}
+.pricing-cta.secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--paper);
+  border: 1px solid var(--line);
+}
+.pricing-cta.secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ===== CONTACT / WHATSAPP BOOKING STUDIO ===== */
 .contact {
   position: relative;
   overflow: hidden;
@@ -1017,10 +1157,10 @@ section {
   width: 45vw;
   height: 45vw;
   border-radius: 50%;
-  background: rgba(255, 110, 64, 0.06);
-  filter: blur(80px);
+  background: rgba(37, 211, 102, 0.05);
+  filter: blur(90px);
   right: -15vw;
-  bottom: -25vw;
+  bottom: -20vw;
   pointer-events: none;
 }
 .contact-head {
@@ -1034,82 +1174,88 @@ section {
 }
 .contact-head p {
   color: var(--soft);
-  max-width: 50ch;
+  max-width: 52ch;
   margin-top: 18px;
-}
-.reach {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-bottom: 64px;
-  position: relative;
-}
-.reach a {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  transition: transform .3s var(--ease), border-color .3s, background .3s;
-}
-.reach a:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent-deep);
-  background: var(--ink-2);
-}
-.reach .ic {
-  width: 52px;
-  height: 52px;
-  border-radius: 13px;
-  background: var(--ink-2);
-  display: grid;
-  place-items: center;
-  flex: none;
-  color: var(--accent);
-}
-.reach .ic svg {
-  width: 24px;
-  height: 24px;
-}
-.reach h3 {
-  font-size: 1.35rem;
-  margin-bottom: 3px;
-}
-.reach small {
-  color: var(--faint);
-  font-size: .84rem;
-}
-.reach .go {
-  margin-left: auto;
-  color: var(--faint);
-  font-size: 1.3rem;
-  transition: color .3s, transform .3s var(--ease);
-}
-.reach a:hover .go {
-  color: var(--accent);
-  transform: translateX(4px);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
-/* ===== CONTACT FORM ===== */
-.form-block {
+.whatsapp-studio {
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 44px 40px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
   position: relative;
-  border-top: 1px solid var(--line);
-  padding-top: 56px;
 }
-.form-block h3 {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  margin-bottom: 8px;
-}
-.form-block > p {
-  color: var(--soft);
+.wa-hero-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
   margin-bottom: 36px;
-  max-width: 46ch;
+  flex-wrap: wrap;
 }
-.form {
+.wa-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  color: #25d366;
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+.wa-status-badge .dot {
+  width: 8px;
+  height: 8px;
+  background: #25d366;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+.wa-direct-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #25d366;
+  color: #0d0c10;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.25s;
+}
+.wa-direct-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+  background: #20ba5a;
+}
+.wa-direct-btn svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.wa-form {
   display: grid;
   gap: 24px;
-  max-width: 760px;
+}
+.wa-form h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--paper);
+  margin-bottom: 4px;
+}
+.wa-form > p {
+  color: var(--soft);
+  font-size: 0.92rem;
+  margin-bottom: 12px;
 }
 .row {
   display: grid;
@@ -1128,15 +1274,6 @@ section {
   letter-spacing: .11em;
   text-transform: uppercase;
 }
-label {
-  display: grid;
-  gap: 8px;
-  color: var(--soft);
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .11em;
-  text-transform: uppercase;
-}
 input, select, textarea {
   width: 100%;
   border: 0;
@@ -1145,10 +1282,12 @@ input, select, textarea {
   color: var(--paper);
   padding: 12px 2px;
   outline: none;
+  font-size: 0.95rem;
+  font-family: inherit;
   transition: border-color .2s;
 }
 input:focus, select:focus, textarea:focus {
-  border-color: var(--accent);
+  border-color: #25d366;
 }
 select option {
   background: var(--ink-2);
@@ -1157,121 +1296,62 @@ select option {
 textarea {
   resize: vertical;
 }
-.form-status {
-  min-height: 22px;
-  color: var(--ok);
-  font-size: .85rem;
-  font-weight: 500;
-  margin-top: 4px;
-}
-.submit-btn {
-  /* Inherits sheen and shadow animations from .button */
-}
 
-/* ===== EMAIL MODAL ===== */
-.email-modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: rgba(13, 12, 16, 0.95);
-  backdrop-filter: blur(10px);
-  display: flex;
+.wa-btn-primary {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .35s var(--ease);
-}
-.email-modal-overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
-.email-modal {
-  background: var(--ink-2);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  width: min(600px, 94vw);
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 40px;
-  position: relative;
-  transform: translateY(24px) scale(.97);
-  transition: transform .4s var(--ease);
-}
-.email-modal-overlay.open .email-modal {
-  transform: none;
-}
-.email-modal h3 {
-  font-family: "Syne", sans-serif;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  letter-spacing: -.035em;
-  margin-bottom: 6px;
-}
-.email-modal > p {
-  color: var(--soft);
-  font-size: .9rem;
-  margin-bottom: 28px;
-}
-.modal-close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--paper);
-  font-size: 1.2rem;
+  gap: 12px;
+  background: #25d366;
+  color: #0d0c10;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 18px 36px;
+  border-radius: 12px;
+  border: 0;
   cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: border-color .2s, background .2s;
+  width: 100%;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.25s;
 }
-.modal-close:hover {
-  border-color: var(--accent);
-  background: var(--ink-3);
+.wa-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+  background: #20ba5a;
 }
-.email-display {
-  background: var(--ink-3);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 14px 18px;
-  font-size: .9rem;
-  color: var(--accent);
-  font-weight: 600;
-  letter-spacing: .02em;
-  margin-bottom: 24px;
-  display: flex;
+.wa-btn-primary svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== FLOATING WHATSAPP BUTTON ===== */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
+  background: #25d366;
+  color: #0d0c10;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.88rem;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s;
 }
-.email-display svg {
-  width: 18px;
-  height: 18px;
-  flex: none;
+.floating-whatsapp:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.6);
+  background: #20ba5a;
 }
-.modal-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
-.modal-divider {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--faint);
-  font-size: .75rem;
-  margin: 24px 0;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-.modal-divider::before, .modal-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--line);
+.floating-whatsapp svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 
 /* ===== FOOTER ===== */
@@ -1485,15 +1565,21 @@ dialog::backdrop {
   .section-head { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
   .positioning-grid { grid-template-columns: 1fr; gap: 64px; }
   .positioning h2 { position: static; }
-  .reach { grid-template-columns: 1fr; }
   .case-copy { grid-template-columns: 1fr; }
   .row { grid-template-columns: 1fr; }
+  .wa-hero-box { flex-direction: column; align-items: flex-start; }
+  .wa-direct-btn { width: 100%; justify-content: center; }
 }
 @media (max-width: 580px) {
   .wrap { width: min(var(--max), calc(100% - 32px)); }
   section { padding: 88px 0; }
+  .pricing { padding: 88px 0; }
+  .whatsapp-studio { padding: 32px 20px; }
+  .floating-whatsapp span { display: none; }
+  .floating-whatsapp { padding: 14px; border-radius: 50%; bottom: 20px; right: 20px; }
   h1 {
     font-size: clamp(2.2rem, 10vw, 3.2rem);
     line-height: 1.2;
@@ -1544,8 +1630,6 @@ dialog::backdrop {
   .offer { grid-template-columns: 45px 1fr; }
   .footer-top, .footer-bottom { align-items: flex-start; flex-direction: column; }
   .case-copy { padding: 22px; }
-  .email-modal { padding: 28px 22px; }
-  .modal-actions { flex-direction: column; }
 }
 
 /* ===== REDUCED MOTION ===== */
